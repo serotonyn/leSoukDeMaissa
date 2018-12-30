@@ -7,6 +7,8 @@ import '../src/components/index.css'
 import React from 'react'
 import { storiesOf } from '@storybook/react'
 
+import { group } from '../src/utils/helper'
+
 // *********** Ta3 Gatsby ************ //
 import { Capital } from '../src/components/indexPageComponents/Capital'
 import { Tips } from '../src/components/indexPageComponents/Tips'
@@ -16,6 +18,10 @@ import { TileInfos } from '../src/components/indexPageComponents/TileInfos'
 import { Collage } from '../src/storiesComponents/Collage'
 import { Menu } from '../src/storiesComponents/Menu'
 import { TileCategories } from '../src/storiesComponents/TileCategories'
+
+// *********** Category page imports ************ //
+import { Articles } from '../src/components/categoryPageComps/Articles'
+import { Dropdowns } from '../src/components/categoryPageComps/Dropdowns'
 
 // *********** Capital ************ //
 storiesOf('Capital', module).add('default', () => <Capital />, {
@@ -40,3 +46,13 @@ storiesOf('Collage', module).add('default', () => <Collage />)
 
 // *********** Menu ************ //
 storiesOf('Menu', module).add('default', () => <Menu />)
+
+// *********** Category page symbols ************ //
+// *********** Category page symbols ************ //
+// *********** Category page symbols ************ //
+
+storiesOf('Articles', module).add('default', () => <Articles />, {
+  notes: "Articles is exception for trimmed components's rule.",
+})
+
+group('Dropdowns', module).add('default', () => <Dropdowns />)

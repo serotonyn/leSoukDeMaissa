@@ -6,6 +6,11 @@ export const colors = {
   darkLavender: '#715192',
   gainsboro: '#E0D6EB',
   whiteSmoke: '#F6F3F9',
+  AntiFlashWhite: '#ECF0EF',
+  grey: '#F5F5F5',
+  mediumTurquise: '#50E3C2',
+  platinium: '#E1ECE9',
+  msuGreen: '1C453B',
 }
 
 const defaultFontStack = [

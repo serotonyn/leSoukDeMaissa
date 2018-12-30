@@ -12,9 +12,13 @@ import { ButtonCapital } from '../src/symbols/ButtonCapital'
 import { Tip } from '../src/symbols/Tip'
 import { TileInfo } from '../src/symbols/TileInfo'
 import { TileCategory } from '../src/symbols/TileCategory'
-
 // *********** Slightly modified components because they don't work with gatsby ************ //
 import { MenuItem } from '../src/storiesComponents/MenuItem'
+
+// *********** Category Page Imports ************ //
+import { CategoryHero } from '../src/symbols/CategoryHero'
+import { Article } from '../src/symbols/Article'
+import { Dropdown } from '../src/symbols/Dropdown'
 
 // extract addon info conf so I don't have to rewrite it for each story
 const group = baseName =>
@@ -68,3 +72,14 @@ const fluid = {
     'http://localhost:8000/static/5cd4192f3b0ddb1296ec7d274120dca2/9a299/Women.jpg 200w,\nhttp://localhost:8000/static/5cd4192f3b0ddb1296ec7d274120dca2/9d564/Women.jpg 374w',
   sizes: '(max-width: 374px) 100vw, 374px',
 }
+
+// *********** Category page symbols ************ //
+// *********** CategoryHero ************ //
+
+group('CategoryHero', module).add('default', () => <CategoryHero />)
+
+// *********** Article ************ //
+storiesOf('Article', module).add('default', () => <Article />)
+
+// *********** Dropdown ************ //
+storiesOf('Dropdown', module).add('default', () => <Dropdown />)

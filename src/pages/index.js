@@ -7,7 +7,6 @@ import React from 'react'
 import '../components/index.css'
 import '../assets/fonts/Dosis/Dosis.css'
 import { Index } from '../components/pages/Index'
-
 const IndexPage = () => (
   <>
     <Index />
