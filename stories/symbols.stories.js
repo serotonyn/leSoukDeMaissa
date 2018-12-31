@@ -29,6 +29,10 @@ import { Price } from '../src/symbols/Price'
 import { DomeAttribute } from '../src/symbols/DomeAttribute'
 import { CheckoutButton } from '../src/symbols/CheckoutButton'
 
+// *********** Cart Page Imports ************ //
+import CartItem from '../src/symbols/CartItem'
+import Checkout from '../src/symbols/Checkout'
+
 // *********** 🗂 Index Page Symbols ************ //
 // *********** ButtonCapital ************ //
 group('Symbols').add('Button--Capital', () => <ButtonCapital />)
@@ -91,3 +95,7 @@ group('Symbols', module).add('DomeAttribute', () => <DomeAttribute />)
 group('Symbols').add('AddToCart', () => <CheckoutButton />)
 
 storiesOf('Symbols', module).add('Pagination', () => <ArticlePagination />)
+
+// ***********  🛍 Cart Page Symbols ************ //
+group('Symbols', module).add('CartItem', () => <CartItem />)
+group('Symbols', module).add('Checkout', () => <Checkout />)

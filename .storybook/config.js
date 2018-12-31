@@ -47,7 +47,7 @@ const newViewports = {
 }
 
 configureViewport({
-  defaultViewport: '992',
+  defaultViewport: 'Responsive',
   viewports: {
     ...newViewports,
   },

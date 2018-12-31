@@ -25,6 +25,8 @@ import { Dropdowns } from '../src/components/categoryPageComps/Dropdowns'
 
 // *********** 📰 Article page imports ************ //
 import { ArticlePage } from '../src/components/ArticlePageComps/ArticlePage'
+import CartItems from '../src/components/CartPageComps/CartItems'
+import Cart from '../src/components/pages/CartPage'
 
 // *********** Capital ************ //
 storiesOf('Capital', module).add('default', () => <Capital />, {
@@ -62,3 +64,8 @@ group('Dropdowns', module).add('default', () => <Dropdowns />)
 
 // *********** Article page comps ************ //
 storiesOf('Article Page', module).add('default', () => <ArticlePage />)
+
+// *********** Cart page comps ************ //
+storiesOf('CartItems').add('default', () => <CartItems />)
+
+storiesOf('Cart Page').add('default', () => <Cart />)

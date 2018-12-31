@@ -9,6 +9,8 @@ import { CheckoutButton } from '../../symbols/CheckoutButton'
 import { breakpoints, fonts, colors } from '../../utils/styles'
 
 const Wrapper = styled.div`
+  max-width: 1024px;
+  margin: 0 auto;
   & > div:first-child {
     margin-bottom: 15px;
   }
@@ -18,6 +20,7 @@ const Wrapper = styled.div`
 
   @media screen and (min-width: ${breakpoints[992]}px) {
     display: flex;
+    // justify-content: center;
     & > div:first-child {
       margin-bottom: 0px;
       flex: 1;
@@ -97,6 +100,7 @@ const Right = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  // max-width: 512px;
 
   @media screen and (min-width: ${breakpoints[992]}px) {
     & > div:nth-child(2) {

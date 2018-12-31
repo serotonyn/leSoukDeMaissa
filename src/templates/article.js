@@ -12,6 +12,9 @@ const ArticleTemplate = ({ data: { post = {}, images = {} } = {} }) => {
   const fluid = images.edges[0].node.localFile.childImageSharp.fluid
   return (
     <>
+      {console.log(
+        JSON.stringify(images.edges[0].node.localFile.childImageSharp.fixed)
+      )}
       <Menu />
       <ArticlePage
         title={title}
@@ -52,7 +55,7 @@ export const query = graphql`
               fluid {
                 ...GatsbyImageSharpFluid
               }
-              fixed(width: 80) {
+              fixed(width: 65) {
                 ...GatsbyImageSharpFixed
               }
             }

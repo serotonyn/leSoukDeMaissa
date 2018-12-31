@@ -87,6 +87,7 @@ const Wrapper = styled.div`
 
   @media screen and (min-width: ${breakpoints[992]}px) {
     display: flex;
+    // max-width: 512px;
   }
 `
 const ArticleAndPagination = styled.div`
