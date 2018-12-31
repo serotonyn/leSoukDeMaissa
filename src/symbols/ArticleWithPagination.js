@@ -5,8 +5,8 @@ import PropTypes from 'prop-types'
 
 import { breakpoints, colors, fonts } from '../utils/styles'
 import { ArticlePagination } from './ArticlePagination'
-import { Price } from './Price'
-import { DomeAttribute } from './DomeAttribute'
+// import { Price } from './Price'
+// import { DomeAttribute } from './DomeAttribute'
 
 const ArticleWrapper = styled.div`
   width: 100%;

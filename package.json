@@ -17,6 +17,7 @@
     "gatsby-plugin-sharp": "^2.0.14",
     "gatsby-plugin-styled-components": "^3.0.4",
     "gatsby-source-filesystem": "^2.0.8",
+    "gatsby-source-wordpress": "^3.0.21",
     "gatsby-transformer-sharp": "^2.1.8",
     "prop-types": "^15.6.2",
     "react": "^16.6.3",
@@ -47,6 +48,7 @@
     "@storybook/addons": "^4.1.4",
     "@storybook/react": "^4.1.4",
     "babel-loader": "^8.0.4",
+    "dotenv": "^6.2.0",
     "prettier": "^1.15.2"
   },
   "repository": {

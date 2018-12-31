@@ -25,7 +25,7 @@ const Text = styled.span`
 export const CheckoutButton = ({ text }) => (
   <Button>
     <Text>{text}</Text>
-    {text === 'Ajouter Au Panier' && <img src={cart} />}
+    {text === 'Ajouter Au Panier' && <img src={cart} alt="Votre Panier" />}
   </Button>
 )
 

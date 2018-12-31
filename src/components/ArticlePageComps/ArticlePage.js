@@ -78,6 +78,7 @@ const ProductName = styled.h3`
 `
 const ProductBrand = styled.h4`
   font-family: ${fonts.dosis};
+  font-weight: 100;
 
   @media screen and (min-width: ${breakpoints[992]}px) {
     font-size: 1.6875rem;
@@ -107,22 +108,22 @@ const Right = styled.div`
   }
 `
 
-export const ArticlePage = () => {
+export const ArticlePage = ({ title, price, size, fluid, brand, color }) => {
   return (
     <Wrapper>
-      <ArticleWithPagination />
+      <ArticleWithPagination fluid={fluid} />
       <Right>
         <DetailsOn992>
-          <ProductName>Veste Grise</ProductName>
-          <ProductBrand>Zara</ProductBrand>
+          <ProductName>{title}</ProductName>
+          <ProductBrand>{brand}</ProductBrand>
           <AvailibiltyVoyant />
         </DetailsOn992>
         <PriceWrapper>
-          <Price text="3999" />
+          <Price text={String(price)} />
         </PriceWrapper>
         <Domes>
-          <DomeAttribute title="Taille" value="M" />
-          <DomeAttribute title="Couleur" value="Noire" />
+          <DomeAttribute title="Taille" value={size} />
+          <DomeAttribute title="Couleur" value={color} />
         </Domes>
         <CheckoutButtonWrapper>
           <CheckoutButton text="Ajouter Au Panier" />
@@ -132,4 +133,6 @@ export const ArticlePage = () => {
   )
 }
 
-ArticlePage.propTypes = {}
+ArticlePage.propTypes = {
+  title: PropTypes.string.isRequired,
+}

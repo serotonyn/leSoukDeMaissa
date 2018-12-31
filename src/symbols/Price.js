@@ -18,8 +18,8 @@ const PriceText = styled.span`
 
 const Currency = styled.span`
   font-size: 0.9375rem;
-  position: absolute;
-  left: 55px;
+  // position: absolute;
+  // left: 55px;
 `
 
 export const Price = ({ text }) => {

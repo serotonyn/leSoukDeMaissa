@@ -1,4 +1,6 @@
 import React from 'react'
+import { graphql } from 'gatsby'
+
 import { Category } from '../components/pages/Category'
 
 export default ({ data: { images = [] } = {} }) => {

@@ -75,10 +75,10 @@ export const ArticlePagination = () => {
       </Text>
       <Arrows>
         <LeftArrow>
-          <img src={Arrow} />
+          <img src={Arrow} alt="fleche gauche" />
         </LeftArrow>
         <RightArrow>
-          <img src={Arrow} />
+          <img src={Arrow} alt="fleche droite" />
         </RightArrow>
       </Arrows>
     </ArticlePaginationWrapper>
