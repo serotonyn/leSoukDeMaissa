@@ -4,42 +4,54 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
 import { breakpoints, colors, fonts } from '../utils/styles'
+import { ArticlePagination } from './ArticlePagination'
+import { Price } from './Price'
+import { DomeAttribute } from './DomeAttribute'
 
 const ArticleWrapper = styled.div`
-  width: 372px;
-  height: 379px;
+  width: 100%;
+  height: 399px;
   background: ${colors.grey};
   text-align: center;
   position: relative;
   overflow: hidden;
 
   @media screen and (min-width: ${breakpoints[650]}px) {
-    width: 490px;
+    // width: 490px;
     height: 499px;
   }
   @media screen and (min-width: ${breakpoints[992]}px) {
-    width: 372px;
-    height: 379px;
+    // width: 50%;
+    // height: 499px;
   }
 `
 
 const GatsbyImage = styled(Img)`
   width: 305px;
   margin: 0 auto;
+  margin-top: 24px;
   @media screen and (min-width: ${breakpoints[650]}px) {
     width: 405px;
   }
   @media screen and (min-width: ${breakpoints[992]}px) {
-    width: 305px;
+    margin-top: 20px;
   }
 `
 
 const ProductName = styled.h3`
   font-family: ${fonts.monospace};
   font-weight: 100;
+
+  @media screen and (min-width: ${breakpoints[992]}px) {
+    font-size: 2.125rem;
+  }
 `
 const ProductBrand = styled.h4`
   font-family: ${fonts.dosis};
+
+  @media screen and (min-width: ${breakpoints[992]}px) {
+    font-size: 1.6875rem;
+  }
 `
 const AvailibiltyVoyant = styled.div`
   width: 7px;
@@ -50,20 +62,59 @@ const AvailibiltyVoyant = styled.div`
   border-radius: 6px;
 `
 
-export const Article = ({ fluid, category }) => {
+export const Details = styled.div`
+  text-align: center;
+  position: absolute;
+  bottom: 4%;
+  left: 50%;
+  transform: translateX(-50%);
+
+  @media screen and (min-width: ${breakpoints[992]}px) {
+    // position: static;
+    // bottom: 0;
+    // left: 0;
+    // transform: translateX(0%);
+    // flex: 1;
+    // display: flex;
+    // flex-direction: column;
+    // justify-content: center;
+    // align-items: center;
+    display: none;
+  }
+`
+const Wrapper = styled.div`
+  position: relative;
+
+  @media screen and (min-width: ${breakpoints[992]}px) {
+    display: flex;
+  }
+`
+const ArticleAndPagination = styled.div`
+  @media screen and (min-width: ${breakpoints[992]}px) {
+    flex: 1;
+    position: relative;
+  }
+`
+
+export const ArticleWithPagination = ({ fluid, category }) => {
   return (
-    <div>
-      <ArticleWrapper>
-        <GatsbyImage fluid={fluid} />
+    <Wrapper>
+      <ArticleAndPagination>
+        <ArticlePagination />
+        <ArticleWrapper>
+          <GatsbyImage fluid={fluid} />
+        </ArticleWrapper>
+      </ArticleAndPagination>
+      <Details>
         <ProductName>Veste Grise</ProductName>
         <ProductBrand>Zara</ProductBrand>
         <AvailibiltyVoyant />
-      </ArticleWrapper>
-    </div>
+      </Details>
+    </Wrapper>
   )
 }
 
-Article.propTypes = {
+ArticleWithPagination.propTypes = {
   fluid: PropTypes.shape({
     base64: PropTypes.string.isRequired,
     aspectRatio: PropTypes.number.isRequired,
@@ -74,7 +125,7 @@ Article.propTypes = {
   category: PropTypes.string.isRequired,
 }
 
-Article.defaultProps = {
+ArticleWithPagination.defaultProps = {
   fluid: {
     aspectRatio: 1,
     base64:

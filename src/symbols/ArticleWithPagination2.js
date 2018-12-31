@@ -4,10 +4,27 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
 import { breakpoints, colors, fonts } from '../utils/styles'
+import { ArticlePagination } from './ArticlePagination'
+
+const Wrapper = styled.div`
+  // display: flex;
+  // justify-content: center;
+  // background: ${colors.grey};
+
+  // @media screen and (min-width: ${breakpoints[650]}px) {
+  //   & > div:first-child > div:first-child {
+  //     justify-content: flex-start;
+  //   }
+  // }
+  // @media screen and (min-width: ${breakpoints[992]}px) {
+  //   display: block;
+  //   background: #fff;
+  // }
+`
 
 const ArticleWrapper = styled.div`
-  width: 372px;
-  height: 379px;
+  width: 420px;
+  height: 420px;
   background: ${colors.grey};
   text-align: center;
   position: relative;
@@ -15,31 +32,39 @@ const ArticleWrapper = styled.div`
 
   @media screen and (min-width: ${breakpoints[650]}px) {
     width: 490px;
-    height: 499px;
+    height: 520px;
   }
   @media screen and (min-width: ${breakpoints[992]}px) {
-    width: 372px;
-    height: 379px;
+    width: 50%;
+    // height: 420px;
   }
 `
 
 const GatsbyImage = styled(Img)`
   width: 305px;
   margin: 0 auto;
+  margin-top: 25px;
   @media screen and (min-width: ${breakpoints[650]}px) {
     width: 405px;
   }
-  @media screen and (min-width: ${breakpoints[992]}px) {
-    width: 305px;
-  }
+  // @media screen and (min-width: ${breakpoints[992]}px) {
+  //   width: 305px;
+  //   margin-top: 53px;
+  // }
 `
 
 const ProductName = styled.h3`
   font-family: ${fonts.monospace};
   font-weight: 100;
+  @media screen and (min-width: ${breakpoints[992]}px) {
+    // display: none;
+  }
 `
 const ProductBrand = styled.h4`
   font-family: ${fonts.dosis};
+  @media screen and (min-width: ${breakpoints[992]}px) {
+    // display: none;
+  }
 `
 const AvailibiltyVoyant = styled.div`
   width: 7px;
@@ -48,22 +73,30 @@ const AvailibiltyVoyant = styled.div`
   margin: 0 auto;
   margin-top: 10px;
   border-radius: 6px;
+  @media screen and (min-width: ${breakpoints[992]}px) {
+    // display: none;
+  }
 `
 
-export const Article = ({ fluid, category }) => {
+const Details = styled.div``
+
+export const ArticleWithPagination = ({ fluid, category }) => {
   return (
-    <div>
+    <Wrapper>
+      <ArticlePagination />
       <ArticleWrapper>
         <GatsbyImage fluid={fluid} />
-        <ProductName>Veste Grise</ProductName>
-        <ProductBrand>Zara</ProductBrand>
-        <AvailibiltyVoyant />
+        <Details>
+          <ProductName>Veste Grise</ProductName>
+          <ProductBrand>Zara</ProductBrand>
+          <AvailibiltyVoyant />
+        </Details>
       </ArticleWrapper>
-    </div>
+    </Wrapper>
   )
 }
 
-Article.propTypes = {
+ArticleWithPagination.propTypes = {
   fluid: PropTypes.shape({
     base64: PropTypes.string.isRequired,
     aspectRatio: PropTypes.number.isRequired,
@@ -74,7 +107,7 @@ Article.propTypes = {
   category: PropTypes.string.isRequired,
 }
 
-Article.defaultProps = {
+ArticleWithPagination.defaultProps = {
   fluid: {
     aspectRatio: 1,
     base64:

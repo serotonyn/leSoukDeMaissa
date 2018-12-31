@@ -12,3 +12,6 @@ export const ButtonCapital = ({ text }) => <Button>{text}</Button>
 ButtonCapital.propTypes = {
   text: PropTypes.string.isRequired,
 }
+ButtonCapital.defaultProps = {
+  text: 'hi',
+}

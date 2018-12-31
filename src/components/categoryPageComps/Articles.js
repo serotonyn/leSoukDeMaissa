@@ -2,8 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
-import { Article } from '../../symbols/Article'
 import { breakpoints } from '../../utils/styles'
+import { ArticleWithPrice } from '../../symbols/ArticleWithPrice'
 
 const ArticlesWrapper = styled.div`
   display: flex;
@@ -33,7 +33,7 @@ export const Articles = ({ edges, category }) => {
     <ArticlesWrapper>
       {edges.map(edge => {
         return (
-          <Article
+          <ArticleWithPrice
             key={edge.node.id}
             fluid={edge.node.childImageSharp.fluid}
             category={category}

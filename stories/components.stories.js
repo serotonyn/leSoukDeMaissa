@@ -23,6 +23,9 @@ import { TileCategories } from '../src/storiesComponents/TileCategories'
 import { Articles } from '../src/components/categoryPageComps/Articles'
 import { Dropdowns } from '../src/components/categoryPageComps/Dropdowns'
 
+// *********** 📰 Article page imports ************ //
+import { ArticlePage } from '../src/components/ArticlePageComps/ArticlePage'
+
 // *********** Capital ************ //
 storiesOf('Capital', module).add('default', () => <Capital />, {
   notes: 'Used symbols: Button--Capital',
@@ -56,3 +59,6 @@ storiesOf('Articles', module).add('default', () => <Articles />, {
 })
 
 group('Dropdowns', module).add('default', () => <Dropdowns />)
+
+// *********** Article page comps ************ //
+storiesOf('Article Page', module).add('default', () => <ArticlePage />)

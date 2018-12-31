@@ -22,7 +22,6 @@ const ArticleWrapper = styled.div`
     height: 379px;
   }
 `
-
 const GatsbyImage = styled(Img)`
   width: 305px;
   margin: 0 auto;
@@ -49,8 +48,33 @@ const AvailibiltyVoyant = styled.div`
   margin-top: 10px;
   border-radius: 6px;
 `
+const PriceTag = styled.div`
+  background: ${props =>
+    props.category === 'hommes' ? colors.platinium : colors.gainsboro};
+  color: ${props =>
+    props.category === 'hommes' ? colors.msuGreen : colors.oldLavender};
+  font-family: ${fonts.monospace};
+  position: absolute;
+  top: 28px;
+  right: -132px;
+  transform: rotate(40deg);
+  width: 100%;
+  height: 33px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-export const Article = ({ fluid, category }) => {
+  @media screen and (min-width: ${breakpoints[650]}px) {
+    top: 35px;
+    right: -178px;
+  }
+  @media screen and (min-width: ${breakpoints[992]}px) {
+    top: 28px;
+    right: -132px;
+  }
+`
+
+export const ArticleWithPrice = ({ fluid, category }) => {
   return (
     <div>
       <ArticleWrapper>
@@ -58,12 +82,13 @@ export const Article = ({ fluid, category }) => {
         <ProductName>Veste Grise</ProductName>
         <ProductBrand>Zara</ProductBrand>
         <AvailibiltyVoyant />
+        <PriceTag category={category}>4999 Da</PriceTag>
       </ArticleWrapper>
     </div>
   )
 }
 
-Article.propTypes = {
+ArticleWithPrice.propTypes = {
   fluid: PropTypes.shape({
     base64: PropTypes.string.isRequired,
     aspectRatio: PropTypes.number.isRequired,
@@ -74,7 +99,7 @@ Article.propTypes = {
   category: PropTypes.string.isRequired,
 }
 
-Article.defaultProps = {
+ArticleWithPrice.defaultProps = {
   fluid: {
     aspectRatio: 1,
     base64:

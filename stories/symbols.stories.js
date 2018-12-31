@@ -6,7 +6,8 @@ import '../src/components/index.css'
 // *********** Packages ************ //
 import React from 'react'
 import { storiesOf } from '@storybook/react'
-import { withInfo } from '@storybook/addon-info'
+// import { withInfo } from '@storybook/addon-info'
+import { group } from '../src/utils/helper'
 
 import { ButtonCapital } from '../src/symbols/ButtonCapital'
 import { Tip } from '../src/symbols/Tip'
@@ -18,22 +19,19 @@ import { MenuItem } from '../src/storiesComponents/MenuItem'
 // *********** Category Page Imports ************ //
 import { CategoryHero } from '../src/symbols/CategoryHero'
 import { Article } from '../src/symbols/Article'
+import { ArticleWithPrice } from '../src/symbols/ArticleWithPrice'
+import { ArticleWithPagination } from '../src/symbols/ArticleWithPagination'
 import { Dropdown } from '../src/symbols/Dropdown'
 
-// extract addon info conf so I don't have to rewrite it for each story
-const group = baseName =>
-  storiesOf(baseName, module)
-    .addDecorator(withInfo)
-    .addParameters({
-      info: {
-        inline: true,
-        header: false,
-        source: false,
-      },
-    })
+// *********** Article Page Imports ************ //
+import { ArticlePagination } from '../src/symbols/ArticlePagination'
+import { Price } from '../src/symbols/Price'
+import { DomeAttribute } from '../src/symbols/DomeAttribute'
+import { CheckoutButton } from '../src/symbols/CheckoutButton'
 
+// *********** 🗂 Index Page Symbols ************ //
 // *********** ButtonCapital ************ //
-group('Symbols').add('Button--Capital', () => <ButtonCapital text="hi" />)
+group('Symbols').add('Button--Capital', () => <ButtonCapital />)
 
 // *********** TileInfo ************ //
 group('Symbols').add('Tile--Info', () => (
@@ -73,13 +71,23 @@ const fluid = {
   sizes: '(max-width: 374px) 100vw, 374px',
 }
 
-// *********** Category page symbols ************ //
+// *********** 🐈 Category page symbols ************ //
 // *********** CategoryHero ************ //
 
-group('CategoryHero', module).add('default', () => <CategoryHero />)
+group('Symbols', module).add('CategoryHero', () => <CategoryHero />)
 
 // *********** Article ************ //
-storiesOf('Article', module).add('default', () => <Article />)
+group('Article', module).add('default', () => <Article />)
+group('Article', module).add('withPrice', () => <ArticleWithPrice />)
 
 // *********** Dropdown ************ //
-storiesOf('Dropdown', module).add('default', () => <Dropdown />)
+group('Symbols', module).add('Dropdown', () => <Dropdown />)
+
+// *********** 📰 Article Page Symbols ************ //
+// *********** Article Pagination ************ //
+group('Article', module).add('withPagination', () => <ArticleWithPagination />)
+group('Symbols', module).add('Price', () => <Price />)
+group('Symbols', module).add('DomeAttribute', () => <DomeAttribute />)
+group('Symbols').add('AddToCart', () => <CheckoutButton />)
+
+storiesOf('Symbols', module).add('Pagination', () => <ArticlePagination />)
