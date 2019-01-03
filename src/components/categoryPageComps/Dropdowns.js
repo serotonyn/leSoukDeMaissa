@@ -4,6 +4,7 @@ import Proptypes from 'prop-types'
 
 import { Dropdown } from '../../symbols/Dropdown'
 import { breakpoints } from '../../utils/styles'
+import ArticlesContext from '../../context/articlesContext'
 
 const DropdownsWrapper = styled.div`
   display: flex;
@@ -23,12 +24,21 @@ const DropdownsWrapper = styled.div`
   }
 `
 
-export const Dropdowns = ({ category }) => {
+export const Dropdowns = ({ category, brands }) => {
   return (
-    <DropdownsWrapper>
-      <Dropdown text="Marques" category={category} />
-      <Dropdown text="Filter: Récents" category={category} />
-    </DropdownsWrapper>
+    <ArticlesContext.Consumer>
+      {({ filterBrands }) => (
+        <DropdownsWrapper>
+          <Dropdown
+            text="Marques"
+            category={category}
+            brands={brands}
+            filterBrands={filterBrands}
+          />
+          {/* <Dropdown text="Filter: Récents" category={category} /> */}
+        </DropdownsWrapper>
+      )}
+    </ArticlesContext.Consumer>
   )
 }
 

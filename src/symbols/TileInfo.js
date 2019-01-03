@@ -28,8 +28,8 @@ const TileInfoWrapper = styled.div`
     content: '\\2713';
     color: ${colors.oldLavender};
     position: absolute;
-    top: 4px;
-    margin-left: 45.7%;
+    top: -3px;
+    margin-left: 44.1%;
     font-size: 2rem;
   }
 `

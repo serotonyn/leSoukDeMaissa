@@ -7,11 +7,11 @@ import { Collage } from '../indexPageComponents/Collage'
 import { TileCategories } from '../indexPageComponents/TileCategories'
 import { Tips } from '../indexPageComponents/Tips'
 import { TileInfos } from '../indexPageComponents/TileInfos'
+import { Footer } from '../indexPageComponents/Footer'
 
 const IndexWrapper = styled.div`
-  max-width: 1284px;
   margin: 0 auto;
-  & > div + div {
+  & > div:nth-child(n + 3) {
     margin-bottom: 64px;
   }
 `
@@ -24,6 +24,7 @@ export const Index = () => {
       <TileCategories />
       <Tips />
       <TileInfos />
+      <Footer />
     </IndexWrapper>
   )
 }

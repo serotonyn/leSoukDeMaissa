@@ -1,0 +1,133 @@
+.footer
+    font-family: dosis
+    margin-top: 70px
+    &__toggle
+        position: relative
+    &__toggle__moreInfos.is-closed
+        display: flex;
+        justify-content: center;
+        margin: 0 0 30px;
+        padding: 30px 0;
+        background: #edece9;
+        position: relative
+        cursor: pointer 
+        &::before
+            content: " "
+            position: absolute
+            top: -15px
+            border: 2px solid #edece9;
+            background: #fff;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+        &::after
+            content: " "
+            position: absolute
+            top: -7px
+            background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgMjAwIDIwMCI+CiAgPGRlZnM+CiAgICA8cGF0aCBpZD0iYSIgZD0iTTEwMCA4Ni41TDQ5LjMgMzUuOWMtMS41LTEuNS0zLjktMS41LTUuNCAwbC04IDhjLTEuNSAxLjUtMS41IDMuOSAwIDUuNEw4Ni42IDEwMCAzNiAxNTAuNmMtMS41IDEuNS0xLjUgMy45IDAgNS40bDggOGMxLjUgMS41IDMuOSAxLjUgNS40IDBsNTAuNy01MC43IDUwLjcgNTAuN2MxLjUgMS41IDMuOSAxLjUgNS40IDBsOC04YzEuNS0xLjUgMS41LTMuOSAwLTUuNGwtNTAuNy01MC43TDE2NCA0OS4yYzEuNS0xLjUgMS41LTMuOSAwLTUuNGwtOC04Yy0xLjUtMS41LTMuOS0xLjUtNS40IDBMMTAwIDg2LjV6Ii8+CiAgPC9kZWZzPgogIDxjbGlwUGF0aCBpZD0iYiI+CiAgICA8dXNlIHhsaW5rOmhyZWY9IiNhIiBvdmVyZmxvdz0idmlzaWJsZSIvPgogIDwvY2xpcFBhdGg+CiAgPHBhdGggY2xpcC1wYXRoPSJ1cmwoI2IpIiBmaWxsPSIjMzAzMzM3IiBkPSJNLTEyLjQtMTIuNWgyMjQuOHYyMjQuOEgtMTIuNHoiLz4KPC9zdmc+")
+            width: 25px;
+            height: 25px;
+            opacity: 0.5
+            transform: rotate(45deg)
+
+.footer__toggle__moreInfos.is-open
+    display: flex;
+    justify-content: center;
+    position: relative
+    padding: 30px 0;
+    cursor: pointer
+    &::before
+        content: " "
+        position: absolute
+        top: -15px
+        border: 2px solid #edece9;
+        background: #fff;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+    &::after
+        content: " "
+        position: absolute
+        top: -7px
+        background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgMjAwIDIwMCI+CiAgPGRlZnM+CiAgICA8cGF0aCBpZD0iYSIgZD0iTTEwMCA4Ni41TDQ5LjMgMzUuOWMtMS41LTEuNS0zLjktMS41LTUuNCAwbC04IDhjLTEuNSAxLjUtMS41IDMuOSAwIDUuNEw4Ni42IDEwMCAzNiAxNTAuNmMtMS41IDEuNS0xLjUgMy45IDAgNS40bDggOGMxLjUgMS41IDMuOSAxLjUgNS40IDBsNTAuNy01MC43IDUwLjcgNTAuN2MxLjUgMS41IDMuOSAxLjUgNS40IDBsOC04YzEuNS0xLjUgMS41LTMuOSAwLTUuNGwtNTAuNy01MC43TDE2NCA0OS4yYzEuNS0xLjUgMS41LTMuOSAwLTUuNGwtOC04Yy0xLjUtMS41LTMuOS0xLjUtNS40IDBMMTAwIDg2LjV6Ii8+CiAgPC9kZWZzPgogIDxjbGlwUGF0aCBpZD0iYiI+CiAgICA8dXNlIHhsaW5rOmhyZWY9IiNhIiBvdmVyZmxvdz0idmlzaWJsZSIvPgogIDwvY2xpcFBhdGg+CiAgPHBhdGggY2xpcC1wYXRoPSJ1cmwoI2IpIiBmaWxsPSIjMzAzMzM3IiBkPSJNLTEyLjQtMTIuNWgyMjQuOHYyMjQuOEgtMTIuNHoiLz4KPC9zdmc+")
+        width: 25px;
+        height: 25px;
+        opacity: 0.5
+        transform: rotate(0deg)
+
+        
+
+
+.footer
+    border-top: 1px solid lightgrey
+    & ul
+        margin: 0
+    & li
+        list-style: none
+    &__followUs img
+        width: 25px
+    &__followUs ul
+        display: flex
+        & li
+            width: 32px
+            margin: 3px
+            cursor: pointer
+
+    & h5
+        color: grey
+    &__logoAndFrenchFlag__flags > img
+        width: 20px
+        margin: 20px
+    &__wrapper
+        display: flex
+        justify-content: space-between
+        max-width: 1170px
+        margin: auto
+        
+        padding-top: 30px
+        padding: 30px 2vw 0
+
+
+
+.footer__haveAQuestion.is-closed, .footer__haveAQuestion.is-open
+    display: none
+
+.footer__toggle__virLayOverAfter
+    position: absolute;
+    top: 0;
+    width: 40px;
+    background: transparent;
+    height: 40px;
+    left: calc(50% - 20px);
+    top: -15px;
+    cursor: pointer
+
+@media screen and (min-width: 768px) // large screen
+    .footer__toggle
+        display: none
+
+
+@media screen and (max-width: 768px)
+    .footer__logoAndFrenchFlag, .footer__haveAQuestion, .footer__followUs
+        display: none
+    .footer__wrapper
+        justify-content: center
+        border: 0
+        & > div
+            margin: 0 5vw
+
+    .footer__wrapper.is-closed
+        display: none
+    .footer__haveAQuestion.is-open
+        display: block
+        text-align: center
+        padding: 22px 0
+        background: -webkit-gradient(left top,left bottom,color-stop(0,#fff),color-stop(100%,#f9f8f7));
+        background: linear-gradient(180deg,#fff 0,#f9f8f7);
+
+
+
+
+
+
+

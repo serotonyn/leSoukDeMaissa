@@ -1,5 +1,5 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+// import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 import CartItem from '../../symbols/CartItem'
@@ -23,17 +23,17 @@ const Title = styled.h2`
   margin-bottom: 29px;
 `
 
-const CartItems = () => {
+const CartItems = ({ lineItems, handleRemove }) => {
   return (
     <Wrapper>
       <Title>Votre Panier</Title>
-      <CartItem />
-      <CartItem />
-      <CartItem />
+      {lineItems.map(p => (
+        <CartItem key={p.id} product={p} handleRemove={handleRemove(p.id)} />
+      ))}
     </Wrapper>
   )
 }
 
-CartItems.propTypes = {}
+// CartItems.propTypes = {}
 
 export default CartItems

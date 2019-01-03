@@ -4,43 +4,60 @@ import PropTypes from 'prop-types'
 
 import { breakpoints } from '../../utils/styles'
 import { ArticleWithPrice } from '../../symbols/ArticleWithPrice'
+import { parseProduct } from '../../utils/parsing'
+import ArticlesContext from '../../context/articlesContext'
 
 const ArticlesWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
-  max-width: 1170px;
-  margin: 0 auto;
+  justify-content: center;
   & > div {
-    margin: 20px 0px;
+    margin: 3vw 10px;
   }
 
-  @media screen and (min-width: ${breakpoints[650]}px) {
-    & > div {
-      margin: 35px 0px;
-    }
+  @media screen and (min-width: ${breakpoints[992]}px) {
+    justify-content: space-evenly;
   }
-
-  @media screen and (min-width: ${breakpoints[1024]}px) {
-    & > div {
-      flex: 1;
-      margin: 9px auto;
-    }
 `
 
 export const Articles = ({ edges, category }) => {
   return (
-    <ArticlesWrapper>
-      {edges.map(edge => {
+    <ArticlesContext.Consumer>
+      {({ selectedBrands }) => {
+        const parsedArticles = edges.map(e => parseProduct(e.node))
+
+        let filtredEdges
+        if (selectedBrands.length === 0) {
+          filtredEdges = parsedArticles
+        } else {
+          filtredEdges = parsedArticles.filter(e =>
+            selectedBrands.includes(e.brand)
+          )
+        }
+        // console.log(filtredEdges)
+
         return (
-          <ArticleWithPrice
-            key={edge.node.id}
-            fluid={edge.node.childImageSharp.fluid}
-            category={category}
-          />
+          <ArticlesWrapper>
+            {filtredEdges.map(edge => {
+              // const parsedArticle = parseProduct(edge.node)
+              // const { title, price, brand } = parsedArticle
+              return (
+                <ArticleWithPrice
+                  key={edge.id}
+                  fluid={edge.fluid}
+                  category={category}
+                  id={edge.id}
+                  title={edge.title}
+                  price={edge.price}
+                  brand={edge.brand}
+                />
+                // <div>hi</div>
+              )
+            })}
+          </ArticlesWrapper>
         )
-      })}
-    </ArticlesWrapper>
+      }}
+    </ArticlesContext.Consumer>
   )
 }
 

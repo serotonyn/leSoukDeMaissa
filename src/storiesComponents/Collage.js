@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import Img from 'gatsby-image'
 
 import { breakpoints } from '../utils/styles'
-import { Capital } from '../components/indexPageComponents/Capital'
+import { Capital } from '../storiesComponents/Capital'
 
 const CollageWrapper = styled.div`
   display: flex;

@@ -5,8 +5,9 @@ import styled from 'styled-components'
 import { ArticleWithPagination } from '../../symbols/ArticleWithPagination'
 import { DomeAttribute } from '../../symbols/DomeAttribute'
 import { Price } from '../../symbols/Price'
-import { CheckoutButton } from '../../symbols/CheckoutButton'
+// import { CheckoutButton } from '../../symbols/CheckoutButton'
 import { breakpoints, fonts, colors } from '../../utils/styles'
+import AddToCart from './AddToCart'
 
 const Wrapper = styled.div`
   max-width: 1024px;
@@ -20,7 +21,6 @@ const Wrapper = styled.div`
 
   @media screen and (min-width: ${breakpoints[992]}px) {
     display: flex;
-    // justify-content: center;
     & > div:first-child {
       margin-bottom: 0px;
       flex: 1;
@@ -112,7 +112,12 @@ const Right = styled.div`
   }
 `
 
-export const ArticlePage = ({ title, price, size, fluid, brand, color }) => {
+export const ArticlePage = ({
+  product: { id, title, price, size, brand, color },
+  fluid,
+  fixed,
+}) => {
+  const productWithFixed = { id, title, price, size, brand, color, fixed }
   return (
     <Wrapper>
       <ArticleWithPagination fluid={fluid} />
@@ -130,7 +135,7 @@ export const ArticlePage = ({ title, price, size, fluid, brand, color }) => {
           <DomeAttribute title="Couleur" value={color} />
         </Domes>
         <CheckoutButtonWrapper>
-          <CheckoutButton text="Ajouter Au Panier" />
+          <AddToCart product={productWithFixed} />
         </CheckoutButtonWrapper>
       </Right>
     </Wrapper>
@@ -138,5 +143,21 @@ export const ArticlePage = ({ title, price, size, fluid, brand, color }) => {
 }
 
 ArticlePage.propTypes = {
-  title: PropTypes.string.isRequired,
+  product: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    brand: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired,
+    size: PropTypes.string.isRequired,
+    color: PropTypes.string.isRequired,
+  }),
+}
+
+ArticlePage.defaultProps = {
+  product: {
+    title: 'Veste Noire',
+    brand: 'Jaqueline Riu',
+    price: 8888,
+    size: 'M',
+    color: 'Noir',
+  },
 }

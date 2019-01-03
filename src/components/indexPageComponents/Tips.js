@@ -12,6 +12,8 @@ const Title = styled('h2')`
 `
 const TipsWrapper = styled.div`
   text-align: center;
+  max-width: 1284px;
+  margin: 0 auto;
 `
 const InnerWrapper = styled.div`
   display: flex;

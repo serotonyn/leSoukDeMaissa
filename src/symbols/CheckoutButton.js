@@ -16,6 +16,7 @@ const Button = styled.button`
   color: #fff;
 
   border-radius: 3px;
+  cursor: pointer;
 `
 
 const Text = styled.span`

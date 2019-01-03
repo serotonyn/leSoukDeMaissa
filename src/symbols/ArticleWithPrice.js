@@ -4,6 +4,8 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
 import { breakpoints, colors, fonts } from '../utils/styles'
+import StoreContext from '../context/cartContext'
+import { Link } from 'gatsby'
 
 const ArticleWrapper = styled.div`
   width: 372px;
@@ -12,6 +14,11 @@ const ArticleWrapper = styled.div`
   text-align: center;
   position: relative;
   overflow: hidden;
+
+  & > a {
+    text-decoration: none;
+    color: #000;
+  }
 
   @media screen and (min-width: ${breakpoints[650]}px) {
     width: 490px;
@@ -74,18 +81,25 @@ const PriceTag = styled.div`
   }
 `
 
-export const ArticleWithPrice = ({ fluid, category }) => {
-  return (
-    <div>
-      <ArticleWrapper>
-        <GatsbyImage fluid={fluid} />
-        <ProductName>Veste Grise</ProductName>
-        <ProductBrand>Zara</ProductBrand>
-        <AvailibiltyVoyant />
-        <PriceTag category={category}>4999 Da</PriceTag>
-      </ArticleWrapper>
-    </div>
-  )
+export class ArticleWithPrice extends React.Component {
+  render() {
+    const { fluid, category, id, title, price, brand } = this.props
+    return (
+      <StoreContext.Consumer>
+        {context => (
+          <ArticleWrapper>
+            <Link to={`/${category}/${id}`}>
+              <GatsbyImage fluid={fluid} />
+              <ProductName>{title}</ProductName>
+              <ProductBrand>{brand}</ProductBrand>
+              <AvailibiltyVoyant />
+              <PriceTag category={category}>{price} Da</PriceTag>
+            </Link>
+          </ArticleWrapper>
+        )}
+      </StoreContext.Consumer>
+    )
+  }
 }
 
 ArticleWithPrice.propTypes = {
@@ -111,4 +125,7 @@ ArticleWithPrice.defaultProps = {
       'http://localhost:8000/static/981a72e0506b6118284200a0a6d821d9/ea2c8/pull_moza.png 200w,\nhttp://localhost:8000/static/981a72e0506b6118284200a0a6d821d9/8bac0/pull_moza.png 400w,\nhttp://localhost:8000/static/981a72e0506b6118284200a0a6d821d9/7937a/pull_moza.png 405w',
   },
   category: 'femmes',
+  title: 'veste',
+  price: 4852,
+  brand: 'Zara',
 }

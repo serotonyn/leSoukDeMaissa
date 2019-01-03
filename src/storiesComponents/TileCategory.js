@@ -5,7 +5,7 @@ import styled from 'styled-components'
 import { colors, fonts } from '../utils/styles'
 
 import Img from 'gatsby-image'
-import { Link } from 'gatsby'
+// import { Link } from 'gatsby'
 
 const TileCategoryWrapper = styled.div`
   width: 209px;
@@ -53,14 +53,14 @@ const BottomText = styled.p`
 `
 
 export const TileCategory = ({ title, content, bottomText, fluid }) => (
-  <Link to={`${title.toLowerCase()}`}>
+  <a>
     <TileCategoryWrapper>
       <GatsbyImage fluid={fluid} />
       <Title>{title}</Title>
       <Content>{content}</Content>
       <BottomText>{bottomText}</BottomText>
     </TileCategoryWrapper>
-  </Link>
+  </a>
 )
 
 TileCategory.propTypes = {

@@ -4,27 +4,24 @@ import { graphql } from 'gatsby'
 import { ArticlePage } from '../components/ArticlePageComps/ArticlePage'
 import { parseProduct } from '../utils/parsing'
 import { Menu } from '../components/indexPageComponents/Menu'
+import Layout from '../components/layout'
+import { Footer } from '../components/indexPageComponents/Footer'
 
 const ArticleTemplate = ({ data: { post = {}, images = {} } = {} }) => {
   const parsedPost = parseProduct(post)
-  const { title, price, size, brand, color } = parsedPost
+  //   const { title, price, size, brand, color } = parsedPost
 
   const fluid = images.edges[0].node.localFile.childImageSharp.fluid
+  const fixed = images.edges[0].node.localFile.childImageSharp.fixed
   return (
-    <>
-      {console.log(
+    <Layout>
+      {/* {console.log(
         JSON.stringify(images.edges[0].node.localFile.childImageSharp.fixed)
-      )}
+      )} */}
       <Menu />
-      <ArticlePage
-        title={title}
-        brand={brand}
-        price={price}
-        size={size}
-        fluid={fluid}
-        color={color}
-      />
-    </>
+      <ArticlePage product={parsedPost} fluid={fluid} fixed={fixed} />
+      <Footer />
+    </Layout>
   )
 }
 

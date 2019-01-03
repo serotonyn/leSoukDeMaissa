@@ -1,10 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { text, breakpoints } from '../../utils/styles'
-import { ButtonCapital } from '../../symbols/ButtonCapital'
-import logoFull from '../../assets/logo_full.svg'
-import { Link } from 'gatsby'
+import { text, breakpoints } from '../utils/styles'
+import { ButtonCapital } from '../symbols/ButtonCapital'
+import logoFull from '../assets/logo_full.svg'
 
 const CapitalWrapper = styled.div`
   text-align: center;
@@ -52,15 +51,15 @@ export const Capital = () => (
       volet pour vous.
     </SousSlogan>
     <ThreeButtons>
-      <Link to="/femmes">
+      <a href="#">
         <ButtonCapital text="FEMMES" />
-      </Link>
-      <Link to="/hommes">
+      </a>
+      <a href="#">
         <ButtonCapital text="HOMMES" />
-      </Link>
-      <Link to="enfants">
+      </a>
+      <a href="#">
         <ButtonCapital text="ENFANTS" />
-      </Link>
+      </a>
     </ThreeButtons>
   </CapitalWrapper>
 )

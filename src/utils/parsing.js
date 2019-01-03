@@ -1,6 +1,6 @@
 export const parseProduct = product => {
   //   console.log(product)
-  const { content, title } = product
+  const { content, title, id, featured_media } = product
 
   const parsedTitle = title
     .replace(/^\d+__/g, '')
@@ -22,12 +22,17 @@ export const parseProduct = product => {
   // } else {
   //   fluid = {}
   // }
+  let fluid = {}
+  if (featured_media) {
+    fluid = featured_media.localFile.childImageSharp.fluid
+  }
+  // console.log(fluid)
 
   return {
-    id: product.id,
+    id,
     title: parsedTitle,
     price,
-    // fluid,
+    fluid,
     size,
     brand,
     color,
@@ -35,5 +40,6 @@ export const parseProduct = product => {
 }
 
 export const calculatePrice = lineItems => {
-  return lineItems.reduce((total, item) => total + item.price, 0)
+  const subTotal = lineItems.reduce((total, item) => total + item.price, 0)
+  return subTotal
 }
