@@ -38,18 +38,16 @@ export const Articles = ({ edges, category }) => {
 
         return (
           <ArticlesWrapper>
-            {edges.map(edge => {
-              // const parsedArticle = parseProduct(edge.node)
-              // const { title, price, brand } = parsedArticle
+            {edges.map((edge, i) => {
               return (
                 <ArticleWithPrice
-                  key={edge.id}
+                  key={edge.node.id}
                   fluid={edge.fluid}
                   category={category}
-                  id={edge.id}
-                  title={edge.title}
-                  price={edge.price}
-                  brand={edge.brand}
+                  id={edge.node.id}
+                  title={edge.node.title}
+                  price={edge.node.price}
+                  brand={edge.node.brand}
                 />
                 // <div>hi</div>
               )
