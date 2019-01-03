@@ -24,21 +24,21 @@ export const Articles = ({ edges, category }) => {
   return (
     <ArticlesContext.Consumer>
       {({ selectedBrands }) => {
-        const parsedArticles = edges.map(e => parseProduct(e.node))
+        // const parsedArticles = edges.map(e => parseProduct(e.node))
 
-        let filtredEdges
-        if (selectedBrands.length === 0) {
-          filtredEdges = parsedArticles
-        } else {
-          filtredEdges = parsedArticles.filter(e =>
-            selectedBrands.includes(e.brand)
-          )
-        }
+        // let filtredEdges
+        // if (selectedBrands.length === 0) {
+        //   filtredEdges = parsedArticles
+        // } else {
+        //   filtredEdges = parsedArticles.filter(e =>
+        //     selectedBrands.includes(e.brand)
+        //   )
+        // }
         // console.log(filtredEdges)
 
         return (
           <ArticlesWrapper>
-            {filtredEdges.map(edge => {
+            {edges.map(edge => {
               // const parsedArticle = parseProduct(edge.node)
               // const { title, price, brand } = parsedArticle
               return (
